@@ -1,4 +1,4 @@
-// dashboard/dashboard.routes.ts
+// src/app/dashboard/dashboard.routes.ts
 import { Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 
