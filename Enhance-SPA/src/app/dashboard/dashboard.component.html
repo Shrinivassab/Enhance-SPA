@@ -1,0 +1,9 @@
+@if (patients$ | async; as patients) {
+    @for (patient of patients; track patient.id) {
+      <div>
+        {{ patient.name }} - {{ patient.diagnosis }}
+      </div>
+    }
+  } @else {
+    <p>No patients found.</p>
+  }
