@@ -1,0 +1,35 @@
+name: Scheduled CI Install
+
+on:
+  schedule:
+    # Runs every 6 hours
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies (npm ci)
+        run: |
+          npm ci
+
+      - name: Optional - run build
+        if: always()
+        run: |
+          npm run build --if-present
+
+      - name: Optional - run tests
+        if: always()
+        run: |
+          npm test --if-present
