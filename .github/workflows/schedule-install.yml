@@ -2,7 +2,7 @@ name: Angular Portfolio CI/CD pipeline learning
 
 on:
   schedule:
-    - cron: '0 */3 * * *' # Every 6 hours (00:00, 06:00, 12:00, 18:00 UTC)
+    - cron: '0 */2 * * *' # Every 6 hours (00:00, 06:00, 12:00, 18:00 UTC)
   workflow_dispatch: # Manual trigger
   push: # Runs on pushes to main or dev
     branches: [ main, dev ]
